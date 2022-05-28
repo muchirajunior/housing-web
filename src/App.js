@@ -5,11 +5,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/"> < Home /> </Route>
+        <Route path="/"  element={< Home/>} />
       </Routes>
-    </Router>
-   
-   
+    </Router> 
+
   );
 }
 

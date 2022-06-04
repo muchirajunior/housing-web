@@ -31,20 +31,20 @@ export default function Register() {
        
     <div className='card p-3 border w-100 m-3  mx-auto shadow bg-light text-primary'  style={{maxWidth:"600px"}}>
         <h4 className='card-title text-center '>Create Account</h4>
-        <div class="mb-3">
-            <label htmlFor="email" class="form-label">email</label>
-            <input type="email" onChange={(event)=>setForm({...form,email:event.target.value})} class="form-control border-0 shadow" id="email" placeholder="email 1"/>
+        <div className="mb-3">
+            <label htmlFor="email" className="form-label">email</label>
+            <input type="email" onChange={(event)=>setForm({...form,email:event.target.value})} className="form-control border-0 shadow" id="email" placeholder="email 1"/>
         </div>
 
-        <div class="mb-3">
-            <label htmlFor="password" class="form-label">password</label>
-            <input type="password" onChange={(event)=>setForm({...form,password:event.target.value})} class="form-control border-0 shadow" id="pass" placeholder="pass"/>
+        <div className="mb-3">
+            <label htmlFor="password" className="form-label">password</label>
+            <input type="password" onChange={(event)=>setForm({...form,password:event.target.value})} className="form-control border-0 shadow" id="pass" placeholder="pass"/>
         </div>
        
-        { error!=="" ? <div class="alert alert-danger alert-dismissible fade show" role="alert"> error sign up, please try again</div> : null }
+        { error!=="" ? <div className="alert alert-danger alert-dismissible fade show" role="alert"> error sign up, please try again</div> : null }
 
-        { loading ? <div class="spinner-border text-primary mx-auto mt-5" role="status">
-            <span class="visually-hidden">Loading...</span> </div> :
+        { loading ? <div className="spinner-border text-primary mx-auto mt-5" role="status">
+            <span className="visually-hidden">Loading...</span> </div> :
           <div className='row text-center'>
             <button onClick={submit} className='btn btn-primary rounded-pill  mx-auto w-50'>Log In</button>
             <h4 className='text-dark opacity-25'>or</h4>

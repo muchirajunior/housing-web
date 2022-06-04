@@ -57,7 +57,7 @@ function Home() {
                 
               </div>
             </div>) : <div className="spinner-border text-primary mx-auto mt-5" role="status">
-            <span class="visually-hidden">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
 
           </div> }        
       </div>

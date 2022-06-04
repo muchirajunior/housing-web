@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../auth-context';
 
 export default function Navbar() {
+  const { currentUser }=useAuth();
+  console.log(currentUser);
   return (
     <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
@@ -37,8 +40,17 @@ export default function Navbar() {
         <button className="btn btn-outline-success btn-sm mr-2" type="submit">Search</button>
         
       </form>
-      <Link className="btn btn-primary btn-sm m-2" to="/signup">Log In</Link>
-      <Link className="btn btn-success btn-sm m-2" to="/signup">Create new Account</Link>
+      {
+        currentUser ? <>
+        <Link className='btn btn-light text-dark'>user</Link>
+         <Link className='btn btn-outline-success'>Log Out</Link>
+        </>:<> <Link className="btn btn-primary btn-sm m-2" to="/signup">Log In</Link>
+             <Link className="btn btn-success btn-sm m-2" to="/signup">Create new Account</Link>
+        </>
+       
+        
+      }
+      
     </div>
   </div>
 </nav>

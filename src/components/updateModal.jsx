@@ -27,27 +27,27 @@ const [form,setForm]=useState({house,description})
  
 
   return (
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="updateModalLabel">Update House</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div className="modal fade" id="updateModal" tabIndex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title" id="updateModalLabel">Update House</h5>
+          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">               
-            <div class="mb-3">
-                <label htmlfor="house" class="form-label">House name</label>
-                <input type="text" defaultValue={house} onChange={(event)=>setForm({...form,house:event.target.value})} class="form-control border-0 shadow"   id="house" placeholder="house 1"/>
+        <div className="modal-body">               
+            <div className="mb-3">
+                <label htmlFor="house" className="form-label">House name</label>
+                <input type="text" defaultValue={house} onChange={(event)=>setForm({...form,house:event.target.value})} className="form-control border-0 shadow"   id="house" placeholder="house 1"/>
             </div>
-            <div class="mb-3">
-                <label fhtmlor="description" class="form-label">Description</label>
-                <textarea class="form-control border-0 shadow-lg" onChange={(event)=>setForm({...form,description:event.target.value})} defaultValue={description} id="description" placeholder='house 1 description' rows="3"></textarea>
+            <div className="mb-3">
+                <label htmlFor="description" className="form-label">Description</label>
+                <textarea className="form-control border-0 shadow-lg" onChange={(event)=>setForm({...form,description:event.target.value})} defaultValue={description} id="description" placeholder='house 1 description' rows="3"></textarea>
             </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          {loading ? <div class="spinner-border text-dark mx-auto mt-5" role="status">
-                <span class="visually-hidden">Loading...</span> </div> : <button type="button" onClick={submit} class="btn btn-primary">Submit</button>}
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          {loading ? <div className="spinner-border text-dark mx-auto mt-5" role="status">
+                <span className="visually-hidden">Loading...</span> </div> : <button type="button" onClick={submit} className="btn btn-primary">Submit</button>}
         </div>
       </div>
     </div>

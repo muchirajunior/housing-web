@@ -43,7 +43,7 @@ function Home() {
       <div className='row'>
 
         { houses.length > 1 ? houses.map((house) =>
-            <div className="card m-3 border mx-auto" style={{ "width": "20rem" }}>
+            <div key={house.id} className="card m-3 border mx-auto" style={{ "width": "20rem" }}>
               <img src={imgUrl(house.image)} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h5 className="card-title">{house.house}</h5>
@@ -56,7 +56,7 @@ function Home() {
                 </div>
                 
               </div>
-            </div>) : <div class="spinner-border text-primary mx-auto mt-5" role="status">
+            </div>) : <div className="spinner-border text-primary mx-auto mt-5" role="status">
             <span class="visually-hidden">Loading...</span>
 
           </div> }        

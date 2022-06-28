@@ -1,23 +1,25 @@
 import React ,{ useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../auth-context';
+import { auth } from '../firebase-config';
+import { signInWithEmailAndPassword,createUserWithEmailAndPassword } from 'firebase/auth';
 export default function SignUp() {
 
   const [form,setForm]=useState({ email:"", password:""});
   const [loading, setLoading]=useState(false)
   const [error, setError]=useState("")
-  const { signup, login }= useAuth()
   const navigate=useNavigate()
   const submit= async(method)=>{
       setLoading(true);
       setError("");
       if (form.email !=="" && form.password !== ""){
         try {
-         const feedback= method==="register" ? await signup(form.email,form.password) : login(form.email,form.password)
-         console.log(feedback);
+          auth.setPersistence(auth)
+        const feedback= method==="register" ? await createUserWithEmailAndPassword(auth, form.email, form.password) :  await signInWithEmailAndPassword(auth,form.email,form.password)
+         console.log(auth.currentUser);
          navigate("/");
         } catch (error) {
           setError(error)
+          console.log(error);
           
         }
       }
@@ -41,7 +43,7 @@ export default function SignUp() {
             <input type="password" onChange={(event)=>setForm({...form,password:event.target.value})} className="form-control border-0 shadow" id="pass" placeholder="pass"/>
         </div>
        
-        { error!=="" ? <div className="alert alert-danger alert-dismissible fade show" role="alert"> error sign up, please try again</div> : null }
+        { error!=="" ? <div className="alert alert-danger alert-dismissible fade show" role="alert"> error sign up, please try again  {}</div> : null }
 
         { loading ? <div className="spinner-border text-primary mx-auto mt-5" role="status">
             <span className="visually-hidden">Loading...</span> </div> :

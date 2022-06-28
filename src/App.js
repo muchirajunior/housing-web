@@ -10,9 +10,9 @@ function App() {
 
         <Router>
           <Routes>
-            <Route  path="/"  element={ auth.currentUser !=null ? <Home/> : <SignUp />} />
+            <Route  path="/"  element={ auth.currentUser  ? <Home/> : <Navigate to="/signup" replace />} />
             <Route path="/create"  element={< Create/>} />
-            {/* <Route path="/signup"  element={< SignUp/>} /> */}
+            <Route path="/signup"  element={< SignUp/>} />
           </Routes>
         </Router> 
   );

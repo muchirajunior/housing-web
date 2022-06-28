@@ -1,19 +1,19 @@
 import React ,{ useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth-context';
-export default function Register() {
+export default function SignUp() {
 
   const [form,setForm]=useState({ email:"", password:""});
   const [loading, setLoading]=useState(false)
   const [error, setError]=useState("")
-  const { signup }= useAuth()
+  const { signup, login }= useAuth()
   const navigate=useNavigate()
-  const submit= async()=>{
+  const submit= async(method)=>{
       setLoading(true);
       setError("");
       if (form.email !=="" && form.password !== ""){
         try {
-         const feedback= await signup(form.email,form.password)
+         const feedback= method==="register" ? await signup(form.email,form.password) : login(form.email,form.password)
          console.log(feedback);
          navigate("/");
         } catch (error) {
@@ -46,9 +46,9 @@ export default function Register() {
         { loading ? <div className="spinner-border text-primary mx-auto mt-5" role="status">
             <span className="visually-hidden">Loading...</span> </div> :
           <div className='row text-center'>
-            <button onClick={submit} className='btn btn-primary rounded-pill  mx-auto w-50'>Log In</button>
+            <button onClick={()=>submit("login")} className='btn btn-primary rounded-pill  mx-auto w-50'>Log In</button>
             <h4 className='text-dark opacity-25'>or</h4>
-            <button onClick={submit} className='btn btn-success rounded-pill  mx-auto w-50'>Create Account</button>
+            <button onClick={()=>submit("register")} className='btn btn-success rounded-pill  mx-auto w-50'>Create Account</button>
           </div>
         }
 

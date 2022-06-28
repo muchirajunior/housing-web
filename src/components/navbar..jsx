@@ -1,10 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../auth-context';
+import { auth } from '../firebase-config';
 
 export default function Navbar() {
-  const { currentUser }=useAuth();
-  console.log(currentUser);
+
+  const currentUser=useAuth()
+  console.log(auth.currentUser);
+
+  const logOut= async () =>{
+    await auth.signOut();
+  }
+
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
@@ -41,9 +49,9 @@ export default function Navbar() {
         
       </form>
       {
-        currentUser ? <>
-        <Link className='btn btn-light text-dark'>user</Link>
-         <Link className='btn btn-outline-success'>Log Out</Link>
+        auth.currentUser !==null ? <>
+        <Link className='btn btn-light text-dark' to="/"  >user</Link>
+         <button className='btn btn-outline-success' onClick={logOut} >Log Out</button>
         </>:<> <Link className="btn btn-primary btn-sm m-2" to="/signup">Log In</Link>
              <Link className="btn btn-success btn-sm m-2" to="/signup">Create new Account</Link>
         </>

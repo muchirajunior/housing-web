@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">CRIB FINDER</a>
-    <button className="btn-light border-0 btn-lg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button className="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon fs-4"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">

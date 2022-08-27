@@ -35,15 +35,15 @@ function Home() {
 
 
   return (
-    <div className='bg-light'>
+    <div className='bg-light '>
 
      <Message/>
       < Navbar />
       < UpdateModal house={data.house} description={data.description} id={data.id} />
-      <div className='row'>
+      <div className='container-fluid row'>
 
         { houses.length > 1 ? houses.map((house) =>
-            <div key={house.id} className="card m-3 border mx-auto" style={{ "width": "20rem" }}>
+            <div key={house.id} className="card m-1 border mx-auto" style={{ "width": "20rem" }}>
               <img src={imgUrl(house.image)} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h5 className="card-title">{house.house}</h5>

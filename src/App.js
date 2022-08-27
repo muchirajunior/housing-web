@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { auth } from "./firebase-config";
 import Create from "./Pages/create";
 import Home from "./Pages/home";
@@ -10,7 +10,7 @@ function App() {
 
         <Router>
           <Routes>
-            <Route  path="/"  element={ auth.currentUser  ? <Home/> : <Navigate to="/signup" replace />} />
+            <Route  path="/"  element={<Home/>} />
             <Route path="/create"  element={< Create/>} />
             <Route path="/signup"  element={< SignUp/>} />
           </Routes>

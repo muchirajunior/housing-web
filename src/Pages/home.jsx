@@ -17,7 +17,7 @@ function Home() {
     }
 
     getData();
-  }, [0])
+  }, [housesCollection])
 
   
   const deleteHouse= async (id)=>{
@@ -43,11 +43,12 @@ function Home() {
       <div className='container-fluid row'>
 
         { houses.length > 1 ? houses.map((house) =>
-            <div key={house.id} className="card m-1 border mx-auto" style={{ "width": "20rem" }}>
+            <div key={house.id} className="card m-1 border mx-auto p-0" style={{ "width": "20rem" }}>
               <img src={imgUrl(house.image)} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h5 className="card-title">{house.house}</h5>
-                <p className="card-text">{house.description}</p>
+                <p className="card-text h-50">{house.description}</p>
+                
                 <div className='col d-flex justify-content-between '>
                  { house.username==="Junior"?  <button className="btn btn-primary" onClick={()=> updateHouse(house.house,house.description,house.id)} data-bs-toggle="modal" data-bs-target="#updateModal">update House</button> :
                      <button className="btn btn-primary">Book Now</button>   }

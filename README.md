@@ -6,8 +6,11 @@ hosted at at firebase [housing-web](https://housingweb.web.app/)
 
 ### setup
 - run command  to install the firebase tools
-``` npm install -g firebase-tools ```
-- run `firebase login`
+``` 
+    npm install -g firebase-tools 
+```
+- run `firebase login` to login to your firebase projects
+- run `firebase init` in your project directory and start new instace 
 
 ### hosting 
 - firebase-config file copy from firebase app setupand add the initialize lines

@@ -35,7 +35,7 @@ hosted at at firebase [housing-web](https://housingweb.web.app/)
     const app = initializeApp(firebaseConfig);
     export const db= getFirestore(app)
     export const auth= getAuth(app)
-    export const imgUrl=(name)=> `https://firebasestorage.googleapis.com/v0/b/housing-77b63.appspot.com/o/images%2F${name}?alt=media&token=f2771684-3a8c-4c2f-96a3-60b9dc87e924`;
+    export const imgUrl=(name)=> `*********`;
 
 ```
 

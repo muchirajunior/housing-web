@@ -37,7 +37,7 @@ function Home() {
   return (
     <div className='bg-light '>
 
-     <Message/>
+      <Message/>
       < Navbar />
       < UpdateModal house={data.house} description={data.description} id={data.id} />
       <div className='container-fluid row'>

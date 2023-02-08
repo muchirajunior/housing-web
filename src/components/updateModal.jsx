@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { doc,updateDoc} from "firebase/firestore";
 import { db } from '../firebase-config';
 
@@ -6,9 +6,6 @@ export default function UpdateModal({house,description,id}) {
 
 const [form,setForm]=useState({house,description})
  const [loading,setLoading]=useState(false)
- useEffect(()=>{
-     setForm({house,description})
- },[])
 
  const submit= async()=>{
      console.log(form);
@@ -17,7 +14,7 @@ const [form,setForm]=useState({house,description})
      if (form.house.length>2 & form.description.length>10){
         await updateDoc(houseDoc,form);
         setLoading(false);
-        window.location.reload();
+        document.getElementById('btn-close').click()
      }else{
         setLoading(false);
         window.alert("please fill all fields !!");
@@ -32,7 +29,7 @@ const [form,setForm]=useState({house,description})
       <div className="modal-content">
         <div className="modal-header">
           <h5 className="modal-title" id="updateModalLabel">Update House</h5>
-          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" className="btn-close" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div className="modal-body">               
             <div className="mb-3">
@@ -46,7 +43,7 @@ const [form,setForm]=useState({house,description})
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          {loading ? <div className="spinner-border text-dark mx-auto mt-5" role="status">
+          {loading ? <div className="spinner-border text-dark mt-1" role="status">
                 <span className="visually-hidden">Loading...</span> </div> : <button type="button" onClick={submit} className="btn btn-primary">Submit</button>}
         </div>
       </div>

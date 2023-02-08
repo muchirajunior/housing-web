@@ -40,7 +40,9 @@ hosted at at firebase [housing-web](https://housingweb.web.app/)
 ```
 
 - specify web app for multiple web app
-``` firebase target:apply hosting target target-name  ```
+```bash
+    firebase target:apply hosting target target-name  
+```
 - add target in firebase.json. target is `web` in this case
 ```JSON
     {
@@ -61,7 +63,7 @@ hosted at at firebase [housing-web](https://housingweb.web.app/)
     }
     }
 ```
-for more visit [firebase-hosting-multle-web](https://firebase.google.com/docs/hosting/multisites)
+for more visit [firebase-hosting-multiple-web](https://firebase.google.com/docs/hosting/multisites)
 
 ### deploy 
 - run `npm run build`

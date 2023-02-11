@@ -12,12 +12,14 @@ function Home() {
   const [data,setData]=useState({ house:"",description:"",id:""})
   useEffect(() => {
     const getData = async () => {
+      console.log("calling get data method");
       const hs = await getDocs(housesCollection);
       setHouses(hs.docs.map((doc) => ({ ...doc.data(), id:doc.id })))
     }
 
     getData();
-  }, [housesCollection])
+    console.log("use effect");
+  }, [])
 
   
   const deleteHouse= async (id)=>{
@@ -47,7 +49,7 @@ function Home() {
               <img src={imgUrl(house.image)} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h5 className="card-title">{house.house}</h5>
-                <p className="card-text h-50">{house.description}</p>
+                <p className="card-text ">{house.description}</p>
                 
                 <div className='col d-flex justify-content-between '>
                  { house.username==="Junior"?  <button className="btn btn-primary" onClick={()=> updateHouse(house.house,house.description,house.id)} data-bs-toggle="modal" data-bs-target="#updateModal">update House</button> :

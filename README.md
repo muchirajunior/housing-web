@@ -2,22 +2,14 @@
 a react app on searching houses using React and Firebase 
 web version of Crib Finder Flutter app  [housing](https://github.com/muchirajunior/housing)
 
-hosted at at firebase [housing-web](https://housingweb.web.app/)
+hosted at firebase [housing-web](https://housingweb.web.app/)
 
-### setup
-- run command  to install the firebase tools
-``` 
-    npm install -g firebase-tools 
-```
-- run `firebase login` to login to your firebase projects
-- run `firebase init` in your project directory and start new instace 
-
-### hosting 
-- firebase-config file copy from firebase app setupand add the initialize lines
+### development config
+- firebase-config file copy from firebase app setup and add the initialize lines
 ```javascript
     import { initializeApp } from "firebase/app";
-    import { getFirestore  } from "@firebase/firestore";
-    import { getAuth } from "@firebase/auth"
+    import { getFirestore  } from "firebase/firestore";
+    import { getAuth } from "firebase/auth"
 
 
     const firebaseConfig = {
@@ -38,6 +30,16 @@ hosted at at firebase [housing-web](https://housingweb.web.app/)
     export const imgUrl=(name)=> `*********`;
 
 ```
+
+### setup
+- run command  to install the firebase tools
+``` 
+    npm install -g firebase-tools 
+```
+- run `firebase login` to login to your firebase projects
+- run `firebase init` in your project directory and start new instace 
+
+### hosting 
 
 - specify web app for multiple web app
 ```bash

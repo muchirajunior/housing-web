@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs, doc, deleteDoc} from "firebase/firestore";
+import {doc, deleteDoc} from "firebase/firestore";
 import { db, imgUrl } from '../firebase-config';
 import Navbar from '../components/navbar.';
 import Footer from '../components/footer';
 import Message from '../components/message';
 import UpdateModal from '../components/updateModal';
+import { getHouses } from './getData.ts'
 
 function Home() {
   const [houses, setHouses] = useState([])
-  const housesCollection = collection(db, "posts")
   const [data,setData]=useState({ house:"",description:"",id:""})
   useEffect(() => {
-    const getData = async () => {
-      console.log("calling get data method");
-      const hs = await getDocs(housesCollection);
-      setHouses(hs.docs.map((doc) => ({ ...doc.data(), id:doc.id })))
+    const getdata= async () =>{
+      const hs=await getHouses();
+      console.log(hs);
+      setHouses(hs);
     }
-
-    getData();
+    getdata();
+   
     console.log("use effect");
   }, [])
 
